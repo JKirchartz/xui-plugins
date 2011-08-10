@@ -24,5 +24,26 @@ xui.extend({
    */
   hide:function() {
     return this.setStyle('display','none');
-  }
+  },
+
+/**
+*  get the next element
+*/
+	'next': function() {
+		var n = this[0];
+		do{n = n.nextSibling;}
+		while (n && n.nodeType != 1);
+		return x$(n);
+	},
+/**
+*  check if an element is(element)
+*/
+	'is': function(sr) {
+		sr = sr.toUpperCase();
+		var n = this[0];
+		if(sr == n.nodeName){
+			return x$(n);
+		}
+		return false;
+	}
 });
