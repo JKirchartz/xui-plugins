@@ -24,11 +24,18 @@ xui.extend({
    */
   hide:function() {
     return this.setStyle('display','none');
-  }
+  },
         // returns next element in DOM
 	next: function() {
 		var n = this[0];
 		do{n = n.nextSibling;}
+		while (n && n.nodeType != 1);
+		return x$(n);
+	},
+	// returns previous element in DOM
+	prev: function() {
+		var n = this[0];
+		do{n = n.previousSibling;}
 		while (n && n.nodeType != 1);
 		return x$(n);
 	},
